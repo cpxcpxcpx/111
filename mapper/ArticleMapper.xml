@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.mapper.ArticleMapper">
+  
+  <insert id="insertArticle" parameterType="com.pojo.Article">
+   insert into article(title,content,userid,articleclass) values (#{title},#{content},#{userid},#{articleclass});
+  </insert>
+ 
+ <select id="showarticle"  resultType="com.pojo.Article">
+   select * from article;
+  </select>
+  <select id="selectarticle" parameterType="java.lang.Integer" resultType="com.pojo.Article">
+   select * from article where id=#{id,jdbcType=INTEGER};;
+  </select>
+  
+  <select id="selectbyclassname" parameterType="java.lang.String" resultType="com.pojo.Article">
+   select * from article where articleclass=#{articleclasscontent};
+  </select>
+  
+  <select id="selectbykeyword" parameterType="java.lang.String" resultType="com.pojo.Article">
+   select * from article where articleclass like "%"#{keyword}"%";
+  </select>
+  </mapper>

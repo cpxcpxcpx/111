@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>注册 - cpx博客- Thousands Find</title>
+	<script type="text/javascript" src="https://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+	<style type="text/css">
+table
+  {
+  border-collapse:collapse;
+  margin: 0 auto;
+  }
+
+table, td, th
+  {
+  border:1px solid black;
+  }
+</style>
+<script type="text/javascript">
+
+$(function(){
+$("#username").change(function(){
+var username=$("#username").val();
+username=$.trim(username);
+
+if(username!=""){
+var url="/showname";
+var args={"username":username,"time":new Date()};
+
+$.post(url,args,function(data){
+$("#message").html(data);
+})
+return false;
+}
+})
+}
+)
+</script>
+</head>
+
+<body>
+		<form name="form" action="/register" method="post" enctype="multipart/form-data">
+			<table>
+				<tr>
+					<td colspan="2" align="center">user register</td>
+				</tr>
+				<tr>
+					<td>用户名</td>
+					<td>
+						<input type=text id="username" name="username" size="30" maxlength="10">
+					</td>
+					<td id="message"></td>
+				</tr>
+				<tr>
+					<td>电话</td>
+					<td>
+						<input type=text id="phone" name="phone" size="30" maxlength="15">
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>密码</td>
+					<td>
+						<input type=password name="password" size="15" maxlength="12">
+					</td>
+				</tr>
+		
+				<tr>
+					<td>地址</td>
+					<td>
+						<select name="address">
+							<option value=0 selected>请选择</option>
+							<option value=AnHui>AnHui</option>
+							<option value=BeiJing>BeiJing</option>
+							<option value=GuangDong>Guangdong</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>头像</td>
+					<td>
+						<input type="file" name="test"/>
+					</td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td>
+						<input type="submit" value="submit">
+						<input type="reset" value="reset">
+					</td>
+				</tr>
+				
+			</table>
+		</form>
+
+</body>
+</html>

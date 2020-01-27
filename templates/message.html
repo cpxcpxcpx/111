@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>个人信息</title>
+	<script type="text/javascript" src="https://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+	<style type="text/css">
+table
+  {
+  border-collapse:collapse;
+  margin: 0 auto;
+  }
+
+table, td, th
+  {
+  border:1px solid black;
+  }
+</style>
+</head>
+
+<body>
+		<form name="form" action="/register" method="post" enctype="multipart/form-data">
+			<table>
+				<tr>
+					<td colspan="2" align="center">用户信息</td>
+				</tr>
+				<tr>
+					<td>用户名</td>
+					<td>
+						<input type=text id="username" name="username" size="30" maxlength="10" th:value="${session.user.username}">
+					</td>
+					<td id="message"></td>
+				</tr>
+				
+				<tr>
+					<td>密码</td>
+					<td>
+						<input type=password name="password" size="15" maxlength="12" th:value="${session.user.password}">
+					</td>
+				</tr>
+		
+				<tr>
+					<td>地址</td>
+					<td>
+						<input  name="address" size="15" maxlength="12" th:value="${session.user.address}">
+					</td>
+				</tr>
+				<tr>
+					<td>头像</td>
+					<td>
+						<input type="file" name="test"/>
+					</td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td>
+						<input type="submit" value="submit">
+						<input type="reset" value="reset">
+					</td>
+				</tr>
+				
+			</table>
+		</form>
+
+</body>
+</html>
